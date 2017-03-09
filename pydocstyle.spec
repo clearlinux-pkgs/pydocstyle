@@ -4,7 +4,7 @@
 #
 Name     : pydocstyle
 Version  : 1.1.1
-Release  : 1
+Release  : 2
 URL      : https://pypi.python.org/packages/c1/08/14df5ee08a1bce1598de4e1cdedb7e55e09060971a7241d40d15a1d7a14a/pydocstyle-1.1.1.zip
 Source0  : https://pypi.python.org/packages/c1/08/14df5ee08a1bce1598de4e1cdedb7e55e09060971a7241d40d15a1d7a14a/pydocstyle-1.1.1.zip
 Summary  : Python docstring style checker
@@ -44,12 +44,12 @@ python components for the pydocstyle package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487899744
+export SOURCE_DATE_EPOCH=1489083999
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1487899744
+export SOURCE_DATE_EPOCH=1489083999
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
