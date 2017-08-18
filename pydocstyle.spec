@@ -4,9 +4,9 @@
 #
 Name     : pydocstyle
 Version  : 1.1.1
-Release  : 3
-URL      : https://pypi.python.org/packages/c1/08/14df5ee08a1bce1598de4e1cdedb7e55e09060971a7241d40d15a1d7a14a/pydocstyle-1.1.1.zip
-Source0  : https://pypi.python.org/packages/c1/08/14df5ee08a1bce1598de4e1cdedb7e55e09060971a7241d40d15a1d7a14a/pydocstyle-1.1.1.zip
+Release  : 4
+URL      : http://pypi.debian.net/pydocstyle/pydocstyle-1.1.1.zip
+Source0  : http://pypi.debian.net/pydocstyle/pydocstyle-1.1.1.zip
 Summary  : Python docstring style checker
 Group    : Development/Tools
 License  : MIT
@@ -19,9 +19,14 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-pydocstyle - docstring style checker
 ====================================
-(formerly pep257)
+        
+        (formerly pep257)
+        
+        **pydocstyle** is a static analysis tool for checking compliance with Python
+        docstring conventions.
+        
+        **pydocstyle** supports most of
 
 %package bin
 Summary: bin components for the pydocstyle package.
@@ -43,16 +48,22 @@ python components for the pydocstyle package.
 %setup -q -n pydocstyle-1.1.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489083999
+export SOURCE_DATE_EPOCH=1503074210
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489083999
+export SOURCE_DATE_EPOCH=1503074210
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -64,4 +75,5 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
