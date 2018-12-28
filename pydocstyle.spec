@@ -4,7 +4,7 @@
 #
 Name     : pydocstyle
 Version  : 3.0.0
-Release  : 9
+Release  : 10
 URL      : https://files.pythonhosted.org/packages/e1/e6/a0669df17a97e462915a10a7d6c567658b60eceddebf62a3fb9975c00196/pydocstyle-3.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e1/e6/a0669df17a97e462915a10a7d6c567658b60eceddebf62a3fb9975c00196/pydocstyle-3.0.0.tar.gz
 Summary  : Python docstring style checker
